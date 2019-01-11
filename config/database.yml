@@ -20,6 +20,14 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+# Sqlite3の場合
+# production:
+#   <<: *default
+#   database: db/production.sqlite3
+
+# postgresqlの場合, Heroku対応
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
